@@ -4,4 +4,5 @@ require './turn'
 require './question'
 
 
-game_1 = Game.new
+start_game = Game.new
+start_game.run_game

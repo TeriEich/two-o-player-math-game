@@ -1,9 +1,25 @@
+require './game'
+require './question'
 
 
-class Turn < Game
+class Turn
 
+  @current_player = :player_1
 
-  Game.score
-  @@player_1.lose_a_life
+  def self.take_turn(turnNum, currentPlayer)
+    puts "*******************************"
+    puts "----------- TURN #{turnNum} -----------"
+    puts "*******************************"
+    player_result = Question.post_question(currentPlayer.name)
+    if player_result == true
+      puts "Correct!"
+    else
+      puts "Wrong!"
+      currentPlayer.lose_a_life
+    end
+
+    Game.score
+
+  end
 
 end

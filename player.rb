@@ -1,6 +1,5 @@
-# require './game'
-
 class Player
+
   attr_accessor :lives
   attr_reader :name
 
