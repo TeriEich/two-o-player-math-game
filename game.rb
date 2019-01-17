@@ -1,5 +1,6 @@
 require './player'
 
+
 class Game
 
   @@total_lives = 3
@@ -13,12 +14,20 @@ class Game
     # @player_2
   end
 
-  p @@player_1
-  p @@player_2
-  puts "#{@@player_1.name} has #{@@player_1.lives} lives left"
-  puts "#{@@player_2.name} has #{@@player_2.lives} lives left"
-  @@player_1.lose_a_life
-  puts "#{@@player_1.name} has #{@@player_1.lives} lives left"
-  puts "#{@@player_1.name}"
+
+  def self.score
+    puts "--------Current Score--------"
+    puts "#{@@player_1.name} -> #{@@player_1.lives} / #{@@total_lives}"
+    puts "#{@@player_2.name} -> #{@@player_2.lives} / #{@@total_lives}"
+
+    if @@player_1.lives > @@player_2.lives
+      puts "**#{@@player_1.name} is in the lead!**"
+    elsif @@player_1.lives < @@player_2.lives
+      puts "**#{@@player_2.name} is in the lead!**"
+    else
+      puts "**#{@@player_1.name} and #{@@player_2.name} are tied!**"
+    end
+  end
+
 
 end
